@@ -6,13 +6,14 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import SignIn from './pages/SignIn';
 import Orders from './pages/Orders';
+import Profile from './pages/Profile';
 
 const Stack = createStackNavigator();
 
 export default function Routes() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Orders">
+      <Stack.Navigator initialRouteName="Profile">
         <Stack.Screen
           name="SignIn"
           component={SignIn}
@@ -21,6 +22,11 @@ export default function Routes() {
         <Stack.Screen
           name="Orders"
           component={Orders}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Profile"
+          component={Profile}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
