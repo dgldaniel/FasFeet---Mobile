@@ -12,6 +12,7 @@ import Orders from './pages/Orders';
 import Profile from './pages/Profile';
 
 import DeliveryDetails from './pages/DeliveryDetails';
+import InformProblem from './pages/InformProblem';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -52,7 +53,7 @@ function Dashboard() {
 export default function Routes() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="DeliveryDetails">
+      <Stack.Navigator initialRouteName="InformProblem">
         <Stack.Screen
           name="SignIn"
           component={SignIn}
@@ -66,6 +67,11 @@ export default function Routes() {
         <Stack.Screen
           name="DeliveryDetails"
           component={DeliveryDetails}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="InformProblem"
+          component={InformProblem}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

@@ -15,8 +15,10 @@ export const WhiteBackground = styled.View`
 `;
 
 export const Content = styled.View`
+  flex: 1;
   height: 100%;
   position: absolute;
+  right: 15px;
+  left: 15px;
   top: 10%;
-  padding: 0 15px;
 `;
