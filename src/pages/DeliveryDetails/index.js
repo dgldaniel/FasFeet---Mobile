@@ -1,5 +1,6 @@
 import React from 'react';
 import { View } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 import DetailsLayout from '~/components/DetailsLayout';
 
@@ -20,6 +21,20 @@ import {
 } from './styles';
 
 export default function DeliveryDetails() {
+  const navigation = useNavigation();
+
+  function goToInformProblem() {
+    navigation.navigate('InformProblem');
+  }
+
+  function goToShowProblem() {
+    navigation.navigate('ShowProblem');
+  }
+
+  function goToConfirmDelivery() {
+    navigation.navigate('ConfirmDelivery');
+  }
+
   return (
     <DetailsLayout>
       <Container>
@@ -70,15 +85,15 @@ export default function DeliveryDetails() {
       </Container>
 
       <ContainerButton>
-        <ActionButton>
+        <ActionButton onPress={goToInformProblem}>
           <CloseButtonIcon name="close-circle-outline" />
           <ActionButtonText>Informar Problema</ActionButtonText>
         </ActionButton>
-        <ActionButton>
+        <ActionButton onPress={goToShowProblem}>
           <InfoIcon name="information-outline" />
           <ActionButtonText>Visualizar Problema</ActionButtonText>
         </ActionButton>
-        <ActionButton>
+        <ActionButton onPress={goToConfirmDelivery}>
           <ConfirmIcon name="check-circle-outline" />
           <ActionButtonText>Confirmar Entrega</ActionButtonText>
         </ActionButton>

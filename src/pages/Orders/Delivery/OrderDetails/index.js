@@ -1,9 +1,12 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import Steps from 'react-native-steps';
 
 import {
+  configsStep,
   Container,
+  ContentOrder,
   NameOrderHeader,
   NameOrderText,
   DeliveryTruckIcon,
@@ -14,39 +17,24 @@ import {
 } from './styles';
 
 const labels = ['Aguardando Retirada', 'Retirada', 'Entregue'];
-const configs = {
-  stepIndicatorSize: 25,
-  currentStepIndicatorSize: 30,
-  separatorStrokeWidth: 2,
-  currentStepStrokeWidth: 3,
-  stepStrokeCurrentColor: '#7159c1',
-  stepStrokeWidth: 3,
-  stepStrokeFinishedColor: '#7159c1',
-  stepStrokeUnFinishedColor: '#aaaaaa',
-  separatorFinishedColor: '#7159c1',
-  separatorUnFinishedColor: '#aaaaaa',
-  stepIndicatorFinishedColor: '#7159c1',
-  stepIndicatorUnFinishedColor: '#ffffff',
-  stepIndicatorCurrentColor: '#ffffff',
-  stepIndicatorLabelFontSize: 13,
-  currentStepIndicatorLabelFontSize: 13,
-  stepIndicatorLabelCurrentColor: '#7159c1',
-  stepIndicatorLabelFinishedColor: '#ffffff',
-  stepIndicatorLabelUnFinishedColor: '#aaaaaa',
-  labelColor: '#999999',
-  labelSize: 13,
-  currentStepLabelColor: '#7159c1',
-};
 
 export default function OrderDetails() {
+  const navigation = useNavigation();
+
+  function goToDeliveryDetails() {
+    navigation.navigate('DeliveryDetails');
+  }
+
   return (
     <Container>
-      <NameOrderHeader>
-        <DeliveryTruckIcon name="truck-delivery" />
-        <NameOrderText>Encomenda 1</NameOrderText>
-      </NameOrderHeader>
+      <ContentOrder>
+        <NameOrderHeader>
+          <DeliveryTruckIcon name="truck-delivery" />
+          <NameOrderText>Encomenda 1</NameOrderText>
+        </NameOrderHeader>
 
-      <Steps configs={configs} current={1} labels={labels} count={3} />
+        <Steps configs={configsStep} current={1} labels={labels} count={3} />
+      </ContentOrder>
 
       <InfoOrderFooter>
         <View>
@@ -58,7 +46,9 @@ export default function OrderDetails() {
           <InfoOrderContent>Rio do Sul</InfoOrderContent>
         </View>
 
-        <LinkViewDetails>Ver Detalhes</LinkViewDetails>
+        <TouchableOpacity onPress={goToDeliveryDetails}>
+          <LinkViewDetails>Ver Detalhes</LinkViewDetails>
+        </TouchableOpacity>
       </InfoOrderFooter>
     </Container>
   );

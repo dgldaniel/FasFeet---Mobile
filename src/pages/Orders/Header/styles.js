@@ -5,6 +5,7 @@ export const Container = styled.View`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 10px;
 `;
 
 export const AvatarUser = styled.View`
@@ -12,6 +13,7 @@ export const AvatarUser = styled.View`
   width: 80px;
   height: 80px;
   border-radius: 40px;
+  margin-right: 10px;
 
   justify-content: center;
   align-items: center;
