@@ -16,9 +16,7 @@ export function* signIn({ payload }) {
 
     api.defaults.headers.Authorization = `Bearer ${token}`;
 
-    yield put(signInSuccess(deliveryman));
-
-    // history.push('/dashboard');
+    yield put(signInSuccess(deliveryman, token));
   } catch (err) {
     Alert.alert(
       'Falha na autenticação',

@@ -41,7 +41,11 @@ export default function Routes() {
           },
         }}
       >
-        <Stack.Screen name="Dashboard" component={Orders} />
+        <Stack.Screen
+          name="Dashboard"
+          component={Orders}
+          options={{ headerShown: false }}
+        />
         <Stack.Screen
           name="DeliveryDetails"
           component={DeliveryDetails}

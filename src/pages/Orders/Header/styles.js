@@ -8,8 +8,7 @@ export const Container = styled.View`
   margin-bottom: 10px;
 `;
 
-export const AvatarUser = styled.View`
-  background-color: #f4effc;
+export const AvatarUser = styled.ImageBackground`
   width: 80px;
   height: 80px;
   border-radius: 40px;
