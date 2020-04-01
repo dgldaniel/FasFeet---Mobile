@@ -1,5 +1,8 @@
 import React from 'react';
-import { View } from 'react-native';
+import { TouchableOpacity, View } from 'react-native';
+import { useDispatch } from 'react-redux';
+
+import { signOut } from '~/store/modules/auth/actions';
 
 import {
   Container,
@@ -12,6 +15,11 @@ import {
 } from './styles';
 
 export default function Header() {
+  const dispatch = useDispatch();
+
+  function handleLogout() {
+    dispatch(signOut());
+  }
   return (
     <Container>
       <InfoUser>
@@ -25,7 +33,9 @@ export default function Header() {
         </View>
       </InfoUser>
 
-      <LogoutIcon name="logout" />
+      <TouchableOpacity onPress={handleLogout}>
+        <LogoutIcon name="logout" />
+      </TouchableOpacity>
     </Container>
   );
 }

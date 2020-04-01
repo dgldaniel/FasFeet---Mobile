@@ -24,6 +24,7 @@ export default function SignIn() {
         <FormInput
           placeholder="Informe seu ID de Cadastro"
           onChangeText={setDeliverymanId}
+          keyboardType="numeric"
         />
         <SubmitButton onPress={goToDashboard}>Entrar no sistema</SubmitButton>
       </Form>
