@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { TouchableOpacity, View } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -19,9 +19,9 @@ export default function Header() {
 
   const dispatch = useDispatch();
 
-  function handleLogout() {
+  const handleLogout = useCallback(() => {
     dispatch(signOut());
-  }
+  }, [dispatch]);
 
   return (
     <Container>

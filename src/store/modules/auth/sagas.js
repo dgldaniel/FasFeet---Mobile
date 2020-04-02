@@ -6,7 +6,7 @@ import api from '~/services/api';
 
 import { signInSuccess, signFailure } from './actions';
 
-export function* signIn({ payload }) {
+function* signIn({ payload }) {
   try {
     const { deliverymanId } = payload;
 
@@ -26,7 +26,7 @@ export function* signIn({ payload }) {
   }
 }
 
-export function setToken({ payload }) {
+function setToken({ payload }) {
   if (!payload) return;
 
   const { token } = payload.auth;

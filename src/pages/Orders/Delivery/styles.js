@@ -19,5 +19,7 @@ export const DeliveryText = styled.Text`
 export const StatusOrderText = styled.Text`
   margin: 0 5px;
   color: #7159c1;
-  font-weight: bold;
+  font-weight: ${props => (props.status ? 'bold' : 'normal')};
 `;
+
+export const ListDelivery = styled.FlatList``;
