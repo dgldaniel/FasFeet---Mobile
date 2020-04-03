@@ -22,4 +22,4 @@ export const StatusOrderText = styled.Text`
   font-weight: ${props => (props.status ? 'bold' : 'normal')};
 `;
 
-export const ListDelivery = styled.FlatList``;
+// export const ListDelivery = styled.FlatList

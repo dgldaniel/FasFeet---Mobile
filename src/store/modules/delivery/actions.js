@@ -1,7 +1,7 @@
-export function deliveriesRequest(deliverymanId) {
+export function deliveriesRequest(deliverymanId, status) {
   return {
     type: '@delivery/DELIVERIES_REQUEST',
-    payload: { deliverymanId },
+    payload: { deliverymanId, status },
   };
 }
 

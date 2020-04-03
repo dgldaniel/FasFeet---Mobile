@@ -5,12 +5,12 @@ import api from '~/services/api';
 
 import { deliveriesSuccess, deliveriesFailure } from './actions';
 
-function* deliveriesRequest({ payload: { deliverymanId } }) {
+function* deliveriesRequest({ payload: { deliverymanId, status } }) {
   try {
     const { data: deliveries } = yield call(
       api.get,
       `/deliverymen/${deliverymanId}/orders`,
-      { params: { order: 'delivered' } }
+      { params: { order: status } }
     );
 
     yield put(deliveriesSuccess(deliveries));
@@ -19,6 +19,8 @@ function* deliveriesRequest({ payload: { deliverymanId } }) {
       'Falha na solicitação',
       'Houve um erro ao procurar as encomendas'
     );
+
+    console.tron.log('error', error.message);
 
     yield put(deliveriesFailure());
   }
