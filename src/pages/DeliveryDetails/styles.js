@@ -3,6 +3,18 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import Button from '~/components/Button';
 
+export const ContainerSpinner = styled.View`
+  flex: 1;
+  background-color: #fff;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const Spinner = styled.ActivityIndicator.attrs({
+  size: 'large',
+  color: '#7159c1',
+})``;
+
 export const Container = styled.View`
   background-color: #fff;
   padding: 10px;

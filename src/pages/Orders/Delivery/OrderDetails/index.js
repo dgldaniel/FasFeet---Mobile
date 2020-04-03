@@ -25,7 +25,9 @@ export default function OrderDetails({ order }) {
   const navigation = useNavigation();
 
   function goToDeliveryDetails() {
-    navigation.navigate('DeliveryDetails');
+    navigation.navigate('DeliveryDetails', {
+      orderId: order.id,
+    });
   }
 
   function countStep() {
@@ -85,10 +87,11 @@ export default function OrderDetails({ order }) {
 
 OrderDetails.propTypes = {
   order: PropTypes.shape({
+    id: PropTypes.number.isRequired,
     product: PropTypes.string.isRequired,
     createdAt: PropTypes.string.isRequired,
-    start_date: PropTypes.oneOfType([PropTypes.string, null]).isRequired,
-    end_date: PropTypes.oneOfType([PropTypes.string, null]).isRequired,
+    start_date: PropTypes.string,
+    end_date: PropTypes.string,
     recipient: PropTypes.shape({
       city: PropTypes.string.isRequired,
     }).isRequired,
