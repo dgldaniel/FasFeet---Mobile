@@ -10,18 +10,14 @@ export const OrderTitle = styled.Text`
   margin-bottom: 10px;
 `;
 
-export const ContainerRecipient = styled.View`
+export const ContainerSpinner = styled.View`
+  flex: 1;
   background-color: #fff;
-  padding: 15px;
-  border: 1px solid #ddd;
-  margin-bottom: 10px;
-  border-radius: 5px;
-
-  flex-direction: row;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
 `;
 
-export const RecipientInfo = styled.Text`
-  color: #ddd;
-  font-size: ${props => (props.date ? 12 : 15)}px;
-`;
+export const Spinner = styled.ActivityIndicator.attrs({
+  size: 'large',
+  color: '#7159c1',
+})``;

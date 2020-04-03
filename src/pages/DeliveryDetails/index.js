@@ -41,7 +41,10 @@ export default function DeliveryDetails() {
   }
 
   function goToShowProblem() {
-    navigation.navigate('ShowProblem');
+    navigation.navigate('ShowProblem', {
+      orderId: order.id,
+      product: order.product,
+    });
   }
 
   function goToConfirmDelivery() {
