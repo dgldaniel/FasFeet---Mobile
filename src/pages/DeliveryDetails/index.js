@@ -37,7 +37,9 @@ export default function DeliveryDetails() {
   let end_date;
 
   function goToInformProblem() {
-    navigation.navigate('InformProblem');
+    navigation.navigate('InformProblem', {
+      orderId: order.id,
+    });
   }
 
   function goToShowProblem() {

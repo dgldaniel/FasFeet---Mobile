@@ -50,7 +50,7 @@ export default function Routes() {
           name="DeliveryDetails"
           component={DeliveryDetails}
           options={{
-            title: 'Selecione o prestador',
+            title: 'Detalhes da Encomenda',
             headerLeft: () => (
               <TouchableOpacity
                 onPress={() => {
