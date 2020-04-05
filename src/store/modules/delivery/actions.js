@@ -17,3 +17,10 @@ export function deliveriesFailure() {
     type: '@delivery/DELIVERIES_FAILURE',
   };
 }
+
+export function showSignatureImage(uri) {
+  return {
+    type: '@delivery/SHOW_SIGNATURE_IMAGE',
+    payload: { uri },
+  };
+}

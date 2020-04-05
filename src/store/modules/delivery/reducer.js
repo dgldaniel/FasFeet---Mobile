@@ -3,6 +3,7 @@ import produce from 'immer';
 const INITIAL_STATE = {
   deliveries: [],
   loading: false,
+  uri: null,
 };
 
 export default function delivery(state = INITIAL_STATE, action) {
@@ -19,6 +20,11 @@ export default function delivery(state = INITIAL_STATE, action) {
       }
       case '@delivery/DELIVERIES_FAILURE': {
         draft.loading = true;
+        break;
+      }
+
+      case '@delivery/SHOW_SIGNATURE_IMAGE': {
+        draft.uri = action.payload.uri;
         break;
       }
       default:

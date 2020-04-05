@@ -9,6 +9,12 @@ export const ContainerImage = styled.View`
   align-items: center;
 `;
 
+export const SignatureImage = styled.Image`
+  width: 100%;
+  height: 80%;
+  border-radius: 5px;
+`;
+
 export const SubmitButton = styled(Button)`
   margin-top: 10px;
   background-color: #7159c1;

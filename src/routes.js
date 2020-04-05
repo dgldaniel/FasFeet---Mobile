@@ -20,19 +20,22 @@ import InformProblem from './pages/InformProblem';
 import ShowProblem from './pages/ShowProblem';
 import ConfirmDelivery from './pages/ConfirmDelivery';
 
+import CameraModal from './pages/ConfirmDelivery/CameraModal';
+
 Icon.loadFont();
 
-const Stack = createStackNavigator();
+const MainStack = createStackNavigator();
+const RootStack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
 export default function Routes() {
   const signed = useSelector(state => state.auth.signed);
 
-  function DashboardContainer() {
+  function MainStackScreen() {
     const navigation = useNavigation();
 
     return (
-      <Stack.Navigator
+      <MainStack.Navigator
         screenOptions={{
           headerTransparent: true,
           headerTintColor: '#FFF',
@@ -41,12 +44,12 @@ export default function Routes() {
           },
         }}
       >
-        <Stack.Screen
+        <MainStack.Screen
           name="Dashboard"
           component={Orders}
           options={{ headerShown: false }}
         />
-        <Stack.Screen
+        <MainStack.Screen
           name="DeliveryDetails"
           component={DeliveryDetails}
           options={{
@@ -62,7 +65,7 @@ export default function Routes() {
             ),
           }}
         />
-        <Stack.Screen
+        <MainStack.Screen
           name="InformProblem"
           component={InformProblem}
           options={{
@@ -78,7 +81,7 @@ export default function Routes() {
             ),
           }}
         />
-        <Stack.Screen
+        <MainStack.Screen
           name="ShowProblem"
           component={ShowProblem}
           options={{
@@ -94,7 +97,7 @@ export default function Routes() {
             ),
           }}
         />
-        <Stack.Screen
+        <MainStack.Screen
           name="ConfirmDelivery"
           component={ConfirmDelivery}
           options={{
@@ -110,20 +113,37 @@ export default function Routes() {
             ),
           }}
         />
-      </Stack.Navigator>
+      </MainStack.Navigator>
+    );
+  }
+
+  function RootStackScreen() {
+    return (
+      <RootStack.Navigator mode="modal">
+        <RootStack.Screen
+          name="Main"
+          component={MainStackScreen}
+          options={{ headerShown: false }}
+        />
+        <RootStack.Screen
+          name="CameraModal"
+          component={CameraModal}
+          options={{ headerShown: false }}
+        />
+      </RootStack.Navigator>
     );
   }
 
   return (
     <NavigationContainer ref={navigationRef}>
       {!signed ? (
-        <Stack.Navigator
+        <MainStack.Navigator
           screenOptions={{
             headerShown: false,
           }}
         >
-          <Stack.Screen name="SignIn" component={SignIn} />
-        </Stack.Navigator>
+          <MainStack.Screen name="SignIn" component={SignIn} />
+        </MainStack.Navigator>
       ) : (
         <Tab.Navigator
           keyboardHidesTabBar
@@ -133,7 +153,7 @@ export default function Routes() {
         >
           <Tab.Screen
             name="DashboardContainer"
-            component={DashboardContainer}
+            component={RootStackScreen}
             options={{
               headerShown: false,
               tabBarLabel: 'Entregas',
