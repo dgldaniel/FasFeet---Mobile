@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Alert } from 'react-native';
 import { useSelector } from 'react-redux';
 import { useNavigation, useRoute } from '@react-navigation/native';
@@ -18,6 +18,8 @@ import DetailsLayout from '~/components/DetailsLayout';
 import api from '~/services/api';
 
 export default function ConfirmDelivery() {
+  const [loading, setLoading] = useState(false);
+
   const profileId = useSelector(state => state.user.profile.id);
   const uri = useSelector(state => state.delivery.uri);
 
@@ -60,11 +62,9 @@ export default function ConfirmDelivery() {
         order_id: route.params.orderId,
       };
 
-      console.tron.log('dataStatus', dataStatus);
-
+      setLoading(true);
       await api.put(`/deliverymen/${profileId}/status`, dataStatus);
-
-      console.tron.log('chegou aqui');
+      setLoading(false);
 
       Alert.alert('Sucesso', 'Confirmação Recebida');
       navigation.goBack();
@@ -82,7 +82,9 @@ export default function ConfirmDelivery() {
         </ContainerCameraIcon>
       </ContainerImage>
 
-      <SubmitButton onPress={handleConfirmDelivery}>Enviar</SubmitButton>
+      <SubmitButton loading={loading} onPress={handleConfirmDelivery}>
+        Enviar
+      </SubmitButton>
     </DetailsLayout>
   );
 }
