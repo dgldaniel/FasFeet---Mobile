@@ -10,8 +10,6 @@ import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-import { navigationRef } from './services/RootNavigation';
-
 import SignIn from './pages/SignIn';
 import Orders from './pages/Orders';
 import Profile from './pages/Profile';
@@ -136,7 +134,7 @@ export default function Routes() {
   }
 
   return (
-    <NavigationContainer ref={navigationRef}>
+    <NavigationContainer>
       {!signed ? (
         <MainStack.Navigator
           screenOptions={{
