@@ -20,7 +20,7 @@ export const Title = styled.Text`
   font-size: 18px;
 `;
 
-export const DeliveryTruckIcon = styled(Icon).attrs({
+export const OrderTruckIcon = styled(Icon).attrs({
   size: 30,
   color: '#7159c1',
 })`

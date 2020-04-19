@@ -3,7 +3,7 @@ import { Text } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { useNavigation } from '@react-navigation/native';
 
-import { showSignatureImage } from '~/store/modules/delivery/actions';
+import { showSignatureImage } from '~/store/modules/order/actions';
 
 import {
   Container,

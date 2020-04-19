@@ -1,6 +1,8 @@
 import styled from 'styled-components/native';
 
-export const Container = styled.View``;
+export const Container = styled.View`
+  margin-bottom: 100px;
+`;
 
 export const OrderContainer = styled.View`
   flex-direction: row;
@@ -11,7 +13,7 @@ export const StatusOrder = styled.View`
   flex-direction: row;
 `;
 
-export const DeliveryText = styled.Text`
+export const OrderText = styled.Text`
   font-size: 20px;
   font-weight: bold;
 `;

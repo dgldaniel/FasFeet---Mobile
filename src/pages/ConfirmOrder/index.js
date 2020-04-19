@@ -17,11 +17,11 @@ import DetailsLayout from '~/components/DetailsLayout';
 
 import api from '~/services/api';
 
-export default function ConfirmDelivery() {
+export default function ConfirmOrder() {
   const [loading, setLoading] = useState(false);
 
   const profileId = useSelector(state => state.user.profile.id);
-  const uri = useSelector(state => state.delivery.uri);
+  const uri = useSelector(state => state.order.uri);
 
   const navigation = useNavigation();
   const route = useRoute();
@@ -52,7 +52,7 @@ export default function ConfirmDelivery() {
     }
   }
 
-  async function handleConfirmDelivery() {
+  async function handleConfirmOrder() {
     try {
       const signatureId = await uploadSignature();
 
@@ -82,7 +82,7 @@ export default function ConfirmDelivery() {
         </ContainerCameraIcon>
       </ContainerImage>
 
-      <SubmitButton loading={loading} onPress={handleConfirmDelivery}>
+      <SubmitButton loading={loading} onPress={handleConfirmOrder}>
         Enviar
       </SubmitButton>
     </DetailsLayout>

@@ -8,7 +8,7 @@ import {
   ContentInfo,
   ContainerAddress,
   Title,
-  DeliveryTruckIcon,
+  OrderTruckIcon,
 } from './styles';
 
 export default function OrderInfo({ order }) {
@@ -22,7 +22,7 @@ export default function OrderInfo({ order }) {
   return (
     <Container>
       <TitleInfo>
-        <DeliveryTruckIcon name="truck-delivery" />
+        <OrderTruckIcon name="truck-delivery" />
         <Title>Informações da Entrega</Title>
       </TitleInfo>
 

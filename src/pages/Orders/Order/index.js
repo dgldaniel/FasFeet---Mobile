@@ -4,23 +4,23 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import OrderDetails from './OrderDetails';
 
-import { deliveriesRequest } from '~/store/modules/delivery/actions';
+import { ordersRequest } from '~/store/modules/order/actions';
 
 import {
   Container,
   OrderContainer,
   StatusOrder,
-  DeliveryText,
+  OrderText,
   StatusOrderText,
   Spinner,
 } from './styles';
 
-export default function Delivery() {
+export default function Order() {
   const [isNotRunning, setRunning] = useState(false);
   const [undelivered, setUndelivered] = useState(true);
 
-  const deliveries = useSelector(state => state.delivery.deliveries);
-  const loadingOrder = useSelector(state => state.delivery.loading);
+  const orders = useSelector(state => state.order.orders);
+  const loadingOrder = useSelector(state => state.order.loading);
   const profileId = useSelector(state => state.user.profile.id);
 
   const dispatch = useDispatch();
@@ -28,7 +28,7 @@ export default function Delivery() {
   useEffect(() => {
     const statusSearchAPI = undelivered ? 'undelivered' : 'delivered';
 
-    if (isNotRunning) dispatch(deliveriesRequest(profileId, statusSearchAPI));
+    if (isNotRunning) dispatch(ordersRequest(profileId, statusSearchAPI));
   }, [dispatch, isNotRunning, profileId, undelivered]);
 
   function ListEmpty() {
@@ -44,7 +44,7 @@ export default function Delivery() {
   return (
     <Container>
       <OrderContainer>
-        <DeliveryText>Entregas</DeliveryText>
+        <OrderText>Entregas</OrderText>
         <StatusOrder>
           <TouchableOpacity onPress={setStatusDeliveries}>
             <StatusOrderText status={undelivered}>Pendentes</StatusOrderText>
@@ -60,8 +60,8 @@ export default function Delivery() {
 
       {!loadingOrder && (
         <FlatList
-          data={deliveries}
-          keyExtractor={delivery => String(delivery.id)}
+          data={orders}
+          keyExtractor={order => String(order.id)}
           renderItem={({ item }) => <OrderDetails order={item} />}
           ListEmptyComponent={ListEmpty}
         />

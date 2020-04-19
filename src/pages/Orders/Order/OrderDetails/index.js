@@ -12,7 +12,7 @@ import {
   ContentOrder,
   NameOrderHeader,
   NameOrderText,
-  DeliveryTruckIcon,
+  OrderTruckIcon,
   InfoOrderFooter,
   InfoOrderTitle,
   InfoOrderContent,
@@ -24,8 +24,8 @@ const labels = ['Aguardando Retirada', 'Retirada', 'Entregue'];
 export default function OrderDetails({ order }) {
   const navigation = useNavigation();
 
-  function goToDeliveryDetails() {
-    navigation.navigate('DeliveryDetails', {
+  function goToOrderDetails() {
+    navigation.navigate('OrderDetails', {
       orderId: order.id,
     });
   }
@@ -55,7 +55,7 @@ export default function OrderDetails({ order }) {
     <Container>
       <ContentOrder>
         <NameOrderHeader>
-          <DeliveryTruckIcon name="truck-delivery" />
+          <OrderTruckIcon name="truck-delivery" />
           <NameOrderText>{order.product}</NameOrderText>
         </NameOrderHeader>
 
@@ -77,7 +77,7 @@ export default function OrderDetails({ order }) {
           <InfoOrderContent>{order.recipient.city}</InfoOrderContent>
         </View>
 
-        <TouchableOpacity onPress={goToDeliveryDetails}>
+        <TouchableOpacity onPress={goToOrderDetails}>
           <LinkViewDetails>Ver Detalhes</LinkViewDetails>
         </TouchableOpacity>
       </InfoOrderFooter>

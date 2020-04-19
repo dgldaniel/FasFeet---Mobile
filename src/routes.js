@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import 'react-native-gesture-handler';
 
 import React from 'react';
@@ -15,12 +16,12 @@ import SignIn from './pages/SignIn';
 import Orders from './pages/Orders';
 import Profile from './pages/Profile';
 
-import DeliveryDetails from './pages/DeliveryDetails';
+import OrderDetails from './pages/OrderDetails';
 import InformProblem from './pages/InformProblem';
 import ShowProblem from './pages/ShowProblem';
-import ConfirmDelivery from './pages/ConfirmDelivery';
+import ConfirmOrder from './pages/ConfirmOrder';
 
-import CameraModal from './pages/ConfirmDelivery/CameraModal';
+import CameraModal from './pages/ConfirmOrder/CameraModal';
 
 Icon.loadFont();
 
@@ -50,8 +51,8 @@ export default function Routes() {
           options={{ headerShown: false }}
         />
         <MainStack.Screen
-          name="DeliveryDetails"
-          component={DeliveryDetails}
+          name="OrderDetails"
+          component={OrderDetails}
           options={{
             title: 'Detalhes da Encomenda',
             headerLeft: () => (
@@ -73,7 +74,7 @@ export default function Routes() {
             headerLeft: () => (
               <TouchableOpacity
                 onPress={() => {
-                  navigation.navigate('DeliveryDetails');
+                  navigation.navigate('OrderDetails');
                 }}
               >
                 <Icon name="chevron-left" size={20} color="#FFF" />
@@ -89,7 +90,7 @@ export default function Routes() {
             headerLeft: () => (
               <TouchableOpacity
                 onPress={() => {
-                  navigation.navigate('DeliveryDetails');
+                  navigation.navigate('OrderDetails');
                 }}
               >
                 <Icon name="chevron-left" size={20} color="#FFF" />
@@ -98,14 +99,14 @@ export default function Routes() {
           }}
         />
         <MainStack.Screen
-          name="ConfirmDelivery"
-          component={ConfirmDelivery}
+          name="ConfirmOrder"
+          component={ConfirmOrder}
           options={{
             title: 'Confirmar entrega',
             headerLeft: () => (
               <TouchableOpacity
                 onPress={() => {
-                  navigation.navigate('DeliveryDetails');
+                  navigation.navigate('OrderDetails');
                 }}
               >
                 <Icon name="chevron-left" size={20} color="#FFF" />
@@ -157,8 +158,8 @@ export default function Routes() {
             options={{
               headerShown: false,
               tabBarLabel: 'Entregas',
-              tabBarIcon: ({ color }) => (
-                <Icon name="format-align-justify" size={20} color={color} />
+              tabBarIcon: ({ color, size }) => (
+                <Icon name="format-align-justify" size={size} color={color} />
               ),
             }}
           />
@@ -168,8 +169,8 @@ export default function Routes() {
             options={{
               headerShown: false,
               tabBarLabel: 'Meu Perfil',
-              tabBarIcon: ({ color }) => (
-                <Icon name="account-circle" size={20} color={color} />
+              tabBarIcon: ({ color, size }) => (
+                <Icon name="account-circle" size={size} color={color} />
               ),
             }}
           />

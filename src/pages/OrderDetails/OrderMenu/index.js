@@ -27,8 +27,8 @@ export default function OrderMenu({ order }) {
     });
   }
 
-  function goToConfirmDelivery() {
-    navigation.navigate('ConfirmDelivery', {
+  function goToConfirmOrder() {
+    navigation.navigate('ConfirmOrder', {
       orderId: order.id,
     });
   }
@@ -45,7 +45,7 @@ export default function OrderMenu({ order }) {
         <ActionButtonText>Visualizar Problema</ActionButtonText>
       </ActionButton>
 
-      <ActionButton onPress={goToConfirmDelivery}>
+      <ActionButton onPress={goToConfirmOrder}>
         <ConfirmIcon name="check-circle-outline" />
         <ActionButtonText>Confirmar Entrega</ActionButtonText>
       </ActionButton>

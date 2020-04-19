@@ -44,7 +44,7 @@ export const NameOrderText = styled.Text`
   font-weight: bold;
 `;
 
-export const DeliveryTruckIcon = styled(Icon).attrs({
+export const OrderTruckIcon = styled(Icon).attrs({
   size: 30,
   color: '#7159c1',
 })`

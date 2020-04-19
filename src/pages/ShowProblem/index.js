@@ -20,8 +20,6 @@ export default function ShowProblem() {
         `/delivery/${route.params.orderId}/problems`
       );
 
-      console.tron.log('data', data);
-
       setProblem(data);
     }
 

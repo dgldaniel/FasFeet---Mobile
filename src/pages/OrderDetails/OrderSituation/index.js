@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import {
   Container,
   TitleInfo,
-  DeliveryTruckIcon,
+  OrderTruckIcon,
   Title,
   ContentInfo,
   ContainerDate,
@@ -26,7 +26,7 @@ export default function OrderSituation({ order }) {
   return (
     <Container>
       <TitleInfo>
-        <DeliveryTruckIcon name="calendar" />
+        <OrderTruckIcon name="calendar" />
         <Title>Situação da Entrega</Title>
       </TitleInfo>
 

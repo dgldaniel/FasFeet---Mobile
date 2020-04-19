@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { useRoute } from '@react-navigation/native';
+import React, { useState, useEffect, useCallback } from 'react';
+import { useRoute, useNavigation } from '@react-navigation/native';
 
 import DetailsLayout from '~/components/DetailsLayout';
 
@@ -11,19 +11,32 @@ import { ContainerSpinner, Spinner } from './styles';
 
 import api from '~/services/api';
 
-export default function DeliveryDetails() {
+export default function OrderDetails() {
   const [order, setOrder] = useState(null);
 
   const route = useRoute();
+  const navigation = useNavigation();
 
-  useEffect(() => {
-    async function fetchOrder() {
+  const fetchOrder = useCallback(() => {
+    async function handleFetch() {
       const { data } = await api.get(`/orders/${route.params.orderId}`);
       setOrder(data);
     }
 
-    fetchOrder();
+    handleFetch();
   }, [route.params.orderId]);
+
+  useEffect(() => {
+    fetchOrder();
+  }, [fetchOrder, route.params.orderId]);
+
+  useEffect(() => {
+    const unsubscribe = navigation.addListener('focus', () => {
+      fetchOrder();
+    });
+
+    return unsubscribe;
+  }, [fetchOrder, navigation, route.params.orderId]);
 
   return (
     <>
