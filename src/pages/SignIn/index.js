@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import logoFastFeet from '~/assets/images/fastfeet-logo.png';
 
@@ -9,6 +9,8 @@ import { signInRequest } from '~/store/modules/auth/actions';
 
 export default function SignIn() {
   const [deliverymanId, setDeliverymanId] = useState(null);
+
+  const loading = useSelector(state => state.auth.loading);
 
   const dispatch = useDispatch();
 
@@ -26,7 +28,9 @@ export default function SignIn() {
           onChangeText={setDeliverymanId}
           keyboardType="numeric"
         />
-        <SubmitButton onPress={goToDashboard}>Entrar no sistema</SubmitButton>
+        <SubmitButton loading={loading} onPress={goToDashboard}>
+          Entrar no sistema
+        </SubmitButton>
       </Form>
     </Container>
   );

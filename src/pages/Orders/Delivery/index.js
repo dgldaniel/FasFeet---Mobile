@@ -12,6 +12,7 @@ import {
   StatusOrder,
   DeliveryText,
   StatusOrderText,
+  Spinner,
 } from './styles';
 
 export default function Delivery() {
@@ -19,6 +20,7 @@ export default function Delivery() {
   const [undelivered, setUndelivered] = useState(true);
 
   const deliveries = useSelector(state => state.delivery.deliveries);
+  const loadingOrder = useSelector(state => state.delivery.loading);
   const profileId = useSelector(state => state.user.profile.id);
 
   const dispatch = useDispatch();
@@ -54,12 +56,16 @@ export default function Delivery() {
         </StatusOrder>
       </OrderContainer>
 
-      <FlatList
-        data={deliveries}
-        keyExtractor={delivery => String(delivery.id)}
-        renderItem={({ item }) => <OrderDetails order={item} />}
-        ListEmptyComponent={ListEmpty}
-      />
+      {loadingOrder && <Spinner />}
+
+      {!loadingOrder && (
+        <FlatList
+          data={deliveries}
+          keyExtractor={delivery => String(delivery.id)}
+          renderItem={({ item }) => <OrderDetails order={item} />}
+          ListEmptyComponent={ListEmpty}
+        />
+      )}
     </Container>
   );
 }

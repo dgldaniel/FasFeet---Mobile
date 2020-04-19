@@ -22,4 +22,7 @@ export const StatusOrderText = styled.Text`
   font-weight: ${props => (props.status ? 'bold' : 'normal')};
 `;
 
-// export const ListDelivery = styled.FlatList
+export const Spinner = styled.ActivityIndicator.attrs({
+  size: 'large',
+  color: '#7159c1',
+})``;

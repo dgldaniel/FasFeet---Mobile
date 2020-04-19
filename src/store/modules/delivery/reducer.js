@@ -1,7 +1,7 @@
 import produce from 'immer';
 
 const INITIAL_STATE = {
-  deliveries: [],
+  deliveries: null,
   loading: false,
   uri: null,
 };
@@ -19,7 +19,7 @@ export default function delivery(state = INITIAL_STATE, action) {
         break;
       }
       case '@delivery/DELIVERIES_FAILURE': {
-        draft.loading = true;
+        draft.loading = false;
         break;
       }
 
