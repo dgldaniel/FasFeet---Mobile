@@ -8,7 +8,8 @@ import {
   Container,
   InfoUser,
   AvatarUser,
-  // AvatarDefault,
+  AvatarUserDefault,
+  AvatarImage,
   WelcomeText,
   UserNameText,
   LogoutIcon,
@@ -19,6 +20,13 @@ export default function Header() {
 
   const dispatch = useDispatch();
 
+  function getNameInitial(name) {
+    return name
+      .split(' ')
+      .map(n => n[0])
+      .join('');
+  }
+
   const handleLogout = useCallback(() => {
     dispatch(signOut());
   }, [dispatch]);
@@ -26,9 +34,16 @@ export default function Header() {
   return (
     <Container>
       <InfoUser>
-        <AvatarUser source={{ uri: profile.avatar.url }}>
-          {/* <AvatarDefault>GA</AvatarDefault> */}
-        </AvatarUser>
+        {!profile.avatar.url && (
+          <AvatarUser>
+            <AvatarUserDefault>
+              {getNameInitial(profile.name)}
+            </AvatarUserDefault>
+          </AvatarUser>
+        )}
+        {!!profile.avatar.url && (
+          <AvatarImage source={{ uri: profile.avatar.url }} />
+        )}
 
         <View>
           <WelcomeText>Bem vindo de volta,</WelcomeText>

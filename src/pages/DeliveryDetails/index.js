@@ -50,7 +50,9 @@ export default function DeliveryDetails() {
   }
 
   function goToConfirmDelivery() {
-    navigation.navigate('ConfirmDelivery');
+    navigation.navigate('ConfirmDelivery', {
+      orderId: order.id,
+    });
   }
 
   useEffect(() => {

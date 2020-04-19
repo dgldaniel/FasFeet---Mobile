@@ -101,7 +101,7 @@ export default function Routes() {
           name="ConfirmDelivery"
           component={ConfirmDelivery}
           options={{
-            title: 'Confirmar o prestador',
+            title: 'Confirmar entrega',
             headerLeft: () => (
               <TouchableOpacity
                 onPress={() => {

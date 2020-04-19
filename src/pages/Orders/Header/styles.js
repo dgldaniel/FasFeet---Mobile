@@ -8,19 +8,26 @@ export const Container = styled.View`
   margin-bottom: 10px;
 `;
 
-export const AvatarUser = styled.ImageBackground`
-  width: 80px;
-  height: 80px;
-  border-radius: 40px;
-  margin-right: 10px;
+export const AvatarUser = styled.View`
+  background-color: #f4effc;
+  width: 160px;
+  height: 160px;
+  border-radius: 80px;
 
   justify-content: center;
   align-items: center;
 `;
 
-export const AvatarDefault = styled.Text`
+export const AvatarUserDefault = styled.Text`
   color: #a28fd0;
-  font-size: 30px;
+  font-size: 60px;
+`;
+
+export const AvatarImage = styled.Image`
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
+  margin-right: 10px;
 `;
 
 export const InfoUser = styled.View`

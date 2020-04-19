@@ -14,7 +14,7 @@ export const AvatarUser = styled.View`
   background-color: #f4effc;
   width: 160px;
   height: 160px;
-  border-radius: 840px;
+  border-radius: 80px;
 
   justify-content: center;
   align-items: center;
@@ -23,6 +23,12 @@ export const AvatarUser = styled.View`
 export const AvatarUserDefault = styled.Text`
   color: #a28fd0;
   font-size: 60px;
+`;
+
+export const AvatarImage = styled.Image`
+  width: 160px;
+  height: 160px;
+  border-radius: 80px;
 `;
 
 export const ContainerInfo = styled.View`
